@@ -30,7 +30,10 @@ public class ToymemberController {
 	//멤버 전체조회
 	@GetMapping("")
 	public Map getByall() {
-		ArrayList<ToymemberDto> list = service.
+		ArrayList<ToymemberDto> list = service.getAll();
+		Map map = new HashMap<>();
+		map.put("list", list);
+		return map;
 	}
 
 }

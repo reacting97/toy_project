@@ -16,6 +16,11 @@ public class ToymemberService {
 	}
 	
 	public ArrayList<ToymemberDto> getAll(){
-		ArrayList<Toymember> list = dao.();
+		ArrayList<Toymember> list = (ArrayList<Toymember>) dao.findAll();
+		ArrayList<ToymemberDto> dlist = new ArrayList<>();
+		for(Toymember vo:list) {
+			dlist.add(new ToymemberDto(vo.getId(), vo.getPwd(), vo.getName(), vo.getEmail()));
+		}
+		return dlist;
 	}
 }
