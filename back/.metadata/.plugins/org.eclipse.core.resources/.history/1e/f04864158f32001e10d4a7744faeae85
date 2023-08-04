@@ -24,7 +24,5 @@ public class ToymemberController {
 		map.put("dto", d);
 		return map;
 	}
-	
-	//멤버 전체조회
 
 }
