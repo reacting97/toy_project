@@ -26,8 +26,8 @@ public class ToymemberController {
 		map.put("dto", d);
 		return map;
 	}
-	
-	//멤버 전체조회
+
+	// 멤버 전체조회
 	@GetMapping("")
 	public Map getByall() {
 		ArrayList<ToymemberDto> list = service.getAll();
@@ -36,4 +36,12 @@ public class ToymemberController {
 		return map;
 	}
 
+	// 맴버 Id로 검색
+	@GetMapping("/{id}")
+	public Map getById(String id) {
+		ToymemberDto dto = service.getById(id);
+		Map map = new HashMap<>();
+		map.put("dto", dto);
+		return map;
+	}
 }

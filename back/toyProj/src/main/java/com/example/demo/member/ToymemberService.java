@@ -23,4 +23,12 @@ public class ToymemberService {
 		}
 		return dlist;
 	}
+	
+	public ToymemberDto getById(String id) {
+		Toymember vo = dao.findById(id).orElse(null);
+		if(vo == null) {
+			return null;
+		}
+		return new ToymemberDto(vo.getId(), vo.getPwd(), vo.getName(), vo.getEmail());
+	}
 }
