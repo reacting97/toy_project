@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ToymemberDao extends JpaRepository<Toymember, String> {
-
+	Toymember findByIdAndPwd(String id, String pwd);
 }

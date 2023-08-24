@@ -31,4 +31,12 @@ public class ToymemberService {
 		}
 		return new ToymemberDto(vo.getId(), vo.getPwd(), vo.getName(), vo.getEmail());
 	}
+	
+	public ToymemberDto getByIdAndPwd(String id, String pwd) {
+		Toymember vo = dao.findByIdAndPwd(id, pwd);
+		if(vo == null) {
+			return null;
+		}
+		return new ToymemberDto(vo.getId(), vo.getPwd(), vo.getName(), vo.getEmail());
+	}
 }
