@@ -9,7 +9,7 @@
         </div>
         <p>아직회원이 없으신가요? <a href="/join">여기를 클릭하세요</a></p>
     </div>
-    </template>
+</template>
     <script>
     export default{
         name:'MemLogin',
@@ -18,6 +18,7 @@
             return{
                 id:'',
                 pwd:'',
+                loginId:'',
             }
         },
         methods:{
@@ -29,13 +30,17 @@
                     if(response.data.dto == null){
                         alert('로그인 실패');
                     }else{
-                        alert('로그인 성공')
+                        sessionStorage.setItem('loginId', self.id)
+                        location.reload()
                         self.$router.push('/');
                     }   
                 }
             })
             },
-        }
+        },
+        created() {
+        this.loginId = sessionStorage.getItem('loginId');
+    }
     }
     </script>
     <style scoped>
